@@ -7,6 +7,7 @@ import {ref,  onMounted, onUnmounted, onBeforeMount } from 'vue'
 
 
 import { usePokemonStore } from '../Stores/pokemones'
+import PokeVuejs from './components/PokeVuejs.vue';
 
 
 
@@ -48,7 +49,7 @@ defineProps({
     <Header
     />
 
-    <main>
+    <main class="p-5">
 
       
 
@@ -69,9 +70,7 @@ defineProps({
       <div
         v-else="showPokemon.length === 0"
         >
-          <h1 class="text-xl font-bold text-center h-96 mb-10 flex justify-center items-center">
-            No hay Pokemones para Mostrar
-          </h1>
+          <PokeVuejs />
       </div>
 
       <Spinner 

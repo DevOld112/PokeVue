@@ -42,7 +42,7 @@ export const usePokemonStore = defineStore('pokemones', () => {
         
                     try {
                         
-                       Promise.all(
+                        Promise.all(
                         pokemones.value.push(pokeObj),
                         copyPokemon.value.push(pokeObj),
         
@@ -50,7 +50,7 @@ export const usePokemonStore = defineStore('pokemones', () => {
             
                         pokemones.value.sort((a, b) => a.id - b.id),
                         copyPokemon.value.sort((a, b) => a.id - b.id),
-                       ) 
+                        ) 
                         
                     } catch (error) {
                         console.log(error)
@@ -143,8 +143,35 @@ export const usePokemonStore = defineStore('pokemones', () => {
         })
         mostrar.value = true
 
+        if(type === 'todos'){
+            mostrar.value = false
+        }
+
+        
+
 
     }
+
+    const classPokemon = {
+        normal: 'bg-gray-200',
+        fire: 'bg-red-500',
+        water: 'bg-blue-400',
+        grass: 'bg-green-400',
+        electric: 'bg-yellow-200',
+        ice: 'bg-indigo-400',
+        fighting: 'bg-red-600',
+        poison: 'bg-purple-200',
+        ground: 'bg-orange-200',
+        flying: 'bg-indigo-100',
+        psychic: 'bg-red-200',
+        bug: 'bg-green-800',
+        rock: 'bg-yellow-700',
+        ghost: 'bg-purple-600',
+        dark: 'bg-gray-700',
+        dragon: 'bg-blue-700',
+        steel: 'bg-gray-400',
+        fairy: 'bg-purple-400',
+    };
 
     
     
@@ -157,6 +184,7 @@ export const usePokemonStore = defineStore('pokemones', () => {
         buttonPokemon,
         cargarPokemones,
         cargando,
-        mostrar
+        mostrar,
+        classPokemon
     }
 })
